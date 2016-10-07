@@ -7,5 +7,11 @@ for(var i=0;i<(input.length+2);i++){
 }
 var vertsLeft = verts;
 while(vertsLeft){
-    edges.add([min(vertsLeft),code[0]])
+    while(code){
+        minVert = min(vertsLeft.exclusion(code))
+        makeEdge(minVert, code[0])
+        code.pop[0];
+        vertsLeft.pop[minVert]
+    }
+    makeEdge(vertsLeft[0], vertsLeft[1])
 }
