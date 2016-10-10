@@ -21,10 +21,6 @@ rect {
   stroke: #999;
 }
 
-body {
-    border: 1px solid black;
-}
-
 </style>
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
@@ -50,7 +46,10 @@ var svg = d3.select("body").append("svg")
 
 svg.append("rect")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .style("stroke", "black")
+    .style("fill", "none")
+    .style("stroke-width", 1);
 
 var nodes = force.nodes(),
     links = force.links(),
