@@ -63,23 +63,27 @@ var cursor = svg.append("circle")
 
 restart();
 
-function mousemove() {
-  cursor.attr("transform", "translate(" + d3.mouse(this) + ")");
-}
-
-function mousedown() {
-  var point = d3.mouse(this),
-      node = {x: point[0], y: point[1]},
-      n = nodes.push(node);
-
-  // add links to any nearby nodes
-  nodes.forEach(function(target) {
-    var x = target.x - node.x,
-        y = target.y - node.y;
-    if (Math.sqrt(x * x + y * y) < 30) {
-      links.push({source: node, target: target});
+function prufer(input) {
+    var code = input.split();
+    var verts = [];
+    var edges = [];
+    for(var i=0;i<(input.length+2);i++){
+        verts.add(i+1);
     }
-  });
+    var vertsLeft = verts;
+    while(vertsLeft){
+        while(code){
+            minVert = min(vertsLeft.exclusion(code))
+            makeEdge(minVert, code[0])
+            code.pop[0];
+            vertsLeft.pop[minVert]
+        }
+        makeEdge(vertsLeft[0], vertsLeft[1])
+    }
+  var point = d3.mouse(this),
+    node = {x: point[0], y: point[1]},
+    n = nodes.push(node);
+    links.push({source: node, target: target});
 
   restart();
 }
