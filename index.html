@@ -43,8 +43,6 @@ var force = d3.layout.force()
 var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height)
-    .on("mousemove", mousemove)
-    .on("mousedown", mousedown);
 
 svg.append("rect")
     .attr("width", width)
@@ -70,7 +68,7 @@ function prufer() {
     var inputsplit = input.split()
     var code = []
     for(var j = 0; j<inputsplit.length; j++){
-        code.push(inputsplit[j].parseInt())
+        code.push(parseInt(inputsplit[j]))
     }
     var n = svg.selectAll(".node").remove()
     var verts = []
