@@ -22,6 +22,8 @@ rect {
 }
 
 </style>
+<input type="text" id="code"></input>
+<input type="submit" onclick="prufer()">Go</input>
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
@@ -63,60 +65,69 @@ var cursor = svg.append("circle")
 
 restart();
 
-function prufer(input) {
-    var code = input.split();
-    var verts = [];
-    var edges = [];
-    for(var i=0;i<(input.length+2);i++){
-        verts.add(i+1);
+function prufer() {
+    var input = document.getElementById("code").value
+    var inputsplit = input.split()
+    var code = []
+    for(var j = 0; j<inputsplit.length; j++){
+        code.push(inputsplit[j].parseInt())
     }
-    var vertsLeft = verts;
+    var n = svg.selectAll(".node").remove()
+    var verts = []
+    var edges = []
+    for(var i=0;i<(input.length+2);i++){
+        verts.add(i+1)
+    }
+    var vertsLeft = verts
     while(vertsLeft){
         while(code){
-            minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}));
-            n = nodes.push(name: code[0])
-            makeEdge(minVert, code[0])
-            code.pop[0];
-            vertsLeft.pop[minVert]
+            minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
+            sourceNode = {name: code[0].toString(), x: 0, y: 0}
+            targetNode = {name: minVert.toString(), x: 0, y: 0}
+            n = nodes.push(sourceNode)
+            n = nodes.push(targetNode)
+            links.push({source: sourceNode, target: targetNode})
+            if(vertsLeft.length === 1){
+                lastNode = {name: vertsLeft[0], x: 0, y: 0}
+                n = nodes.push(lastNode)
+                links.push({source: sourceNode, target: lastNode})
+            }
+            code.pop[0]
+            vertsLeft.splice(minVert, 1)
+            restart()
+            setTimeout(function(){}, 500)
         }
-        makeEdge(vertsLeft[0], vertsLeft[1])
+        if(vertsLeft.length > 1){
+            sourceNode = {name: vertsLeft[0].toString(), x: 0, y: 0}
+            targetNode = {name: vertsLeft[1].toString(), x: 0, y: 0}
+            links.push({source: sourceNode, target: targetNode})
+        }
     }
-  var point = d3.mouse(this),
-    node = {x: point[0], y: point[1]},
-    n = nodes.push(node);
-    links.push({source: node, target: target});
-
-  restart();
 }
 
 function tick() {
   link.attr("x1", function(d) { return d.source.x; })
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
+      .attr("y2", function(d) { return d.target.y; })
 
   node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
+      .attr("cy", function(d) { return d.y; })
       .append("text")
       .attr("dx", 12)
       .attr("dy", ".35em")
-      .text(function(d) { return d.name });
+      .text(function(d) { return d.name })
 }
 
 function restart() {
   link = link.data(links);
 
   link.enter().insert("line", ".node")
-      .attr("class", "link");
+      .attr("class", "link")
 
-  node = node.data(nodes);
+  node = node.data(nodes)
 
-  node.enter().insert("circle", ".cursor")
-      .attr("class", "node")
-      .attr("r", 5)
-      .call(force.drag);
-
-  force.start();
+  force.start()
 }
 
 </script>
