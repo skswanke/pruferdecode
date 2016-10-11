@@ -65,6 +65,13 @@ restart();
 
 function prufer() {
     var input = document.getElementById("code").value
+    if (input === "" || input === null || input === 'undefined' || !isNaN(input)){
+        document.getElementById("code").append("Error")
+        var para = document.createElement("p");
+        var node = document.createTextNode("Error Please enter a valid string.");
+        para.appendChild(node);
+        return 0
+    }
     var inputsplit = input.split()
     var code = []
     for(var j = 0; j<inputsplit.length; j++){
