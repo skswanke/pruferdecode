@@ -97,7 +97,9 @@ function prufer() {
     console.log(vertsLeft)
     while(vertsLeft.length>1){
         while(code){
-            minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
+            possibleMins = vertsLeft.filter(function(i) {return code.indexOf(i) < 0;})
+            console.log(possibleMins)
+            minVert = Math.min.apply(Math, possibleMins)
             sourceNode = {name: code[0].toString(), x: 0, y: 0}
             targetNode = {name: minVert.toString(), x: 0, y: 0}
             console.log(sourceNode.name)
