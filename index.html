@@ -65,6 +65,10 @@ var cursor = svg.append("circle")
 
 restart();
 
+Array.prototype.diff = function(a) {
+    return this.filter(function(i) {return a.indexOf(i) < 0;});
+};
+
 function prufer() {
     var input = document.getElementById("code").value
     console.log(input)
@@ -97,7 +101,7 @@ function prufer() {
     console.log(vertsLeft)
     while(vertsLeft.length>1){
         while(code){
-            possibleMins = vertsLeft.filter(function(i) {return code.indexOf(i) < 0;})
+            possibleMins = vertsLeft.diff(code)
             console.log(possibleMins)
             minVert = Math.min.apply(Math, possibleMins)
             sourceNode = {name: code[0].toString(), x: 0, y: 0}
