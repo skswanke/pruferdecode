@@ -106,8 +106,7 @@ function prufer() {
             console.log("node adds:")
             console.log(sourceNode)
             console.log(targetNode)
-            nodes.push(sourceNode)
-            nodes.push(targetNode)
+            nodes.push(sourceNode, targetNode)
             links.push({source: sourceNode, target: targetNode})
             if(vertsLeft.length === 1){
                 minVert = {name: vertsLeft[0], x: 0, y: 0}
@@ -145,12 +144,13 @@ function tick() {
 }
 
 function restart() {
-  link = link.data(links);
+    link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; });
+    link.enter().insert("line", ".node").attr("class", "link");
+    link.exit().remove();
 
-  link.enter().insert("line", ".node")
-      .attr("class", "link")
-
-  node = node.data(nodes)
+    node = node.data(force.nodes(), function(d) { return d.id;});
+    node.enter().append("circle").attr("class", function(d) { return "node " + d.id; }).attr("r", 8);
+    node.exit().remove();
 
   force.start()
 }
