@@ -109,10 +109,11 @@ function prufer() {
                 minVert = {name: vertsLeft[0], x: 0, y: 0}
                 n = nodes.push(lastNode)
                 links.push({source: sourceNode, target: minVert})
+                vertsLeft.pop[0]
             }
             code = code.pop[0]
             console.log(code)
-            vertsLeft = vertsLeft.splice(minVert, 1)
+            vertsLeft = vertsLeft.pop(minVert)
             console.log(vertsLeft)
             restart()
             setTimeout(function(){}, 500)
