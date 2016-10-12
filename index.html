@@ -95,7 +95,7 @@ function prufer() {
     }
     var vertsLeft = verts
     console.log(vertsLeft)
-    while(vertsLeft){
+    while(vertsLeft.length>1){
         while(code){
             minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
             sourceNode = {name: code[0].toString(), x: 0, y: 0}
