@@ -69,6 +69,15 @@ Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
+function findWithAttr(array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+        if(array[i][attr] === value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 function prufer() {
     var input = document.getElementById("code").value
     if (input === "" || input === null || input === 'undefined' || isNaN(input)){
@@ -102,14 +111,14 @@ function prufer() {
             console.log(possibleMins)
             minVert = Math.min.apply(Math, possibleMins)
             if(d3.select('.name' + code[0])){
-                sourceNode = d3.select('.name' + code[0])[0]
+                sourceNode = nodes[findWithAttr(nodes, 'id', code[0])]
             } else {
-                sourceNode = {id: code[0].toString(), x: (width/2), y: (height/2)}
+                sourceNode = {id: code[0].toString()}
             }
             if(d3.select('.name' + minVert)){
-                targetNode = d3.select('.name' + minVert)[0]
+                targetNode = nodes[findWithAttr(nodes, 'id', minVert)]
             } else {
-                targetNode = {id: minVert.toString(), x: (width/2), y: (height/2)}
+                targetNode = {id: minVert.toString()}
             }
             console.log("node adds:")
             console.log(sourceNode)
@@ -117,7 +126,7 @@ function prufer() {
             nodes.push(sourceNode, targetNode)
             links.push({source: sourceNode, target: targetNode})
             if(vertsLeft.length === 1){
-                minVert = {id: vertsLeft[0], x: 0, y: 0}
+                minVert = {id: vertsLeft[0]}
                 n = nodes.push(lastNode)
                 links.push({source: sourceNode, target: minVert})
                 vertsLeft.pop[0]
@@ -133,8 +142,8 @@ function prufer() {
         }
         console.log("Verts Left: " + vertsLeft.toString())
         if(vertsLeft.length > 1){
-            sourceNode = {id: vertsLeft[0].toString(), x: 0, y: 0}
-            targetNode = {id: vertsLeft[1].toString(), x: 0, y: 0}
+            sourceNode = {id: vertsLeft[0].toString()}
+            targetNode = {id: vertsLeft[1].toString()}
             links.push({source: sourceNode, target: targetNode})
             vertsLeft = []
         }
