@@ -71,11 +71,6 @@ Array.prototype.diff = function(a) {
 
 function prufer() {
     var input = document.getElementById("code").value
-    console.log(input)
-    console.log("input === '':" + (input === "").toString())
-    console.log("input === null:" + (input === null).toString())
-    console.log("input === 'undefined':" + (input === 'undefined').toString())
-    console.log("input is NaN:" + (!isNaN(input)).toString())
     if (input === "" || input === null || input === 'undefined' || isNaN(input)){
         console.log("invalid input")
         document.getElementById("code").append("Error")
