@@ -102,12 +102,12 @@ function prufer() {
             console.log(possibleMins)
             minVert = Math.min.apply(Math, possibleMins)
             if(d3.select('.name' + code[0])){
-                sourceNode = d3.select('.name' + code[0])
+                sourceNode = d3.select('.name' + code[0])[0]
             } else {
                 sourceNode = {id: code[0].toString(), x: (width/2), y: (height/2)}
             }
             if(d3.select('.name' + minVert)){
-                targetNode = d3.select('.name' + minVert)
+                targetNode = d3.select('.name' + minVert)[0]
             } else {
                 targetNode = {id: minVert.toString(), x: (width/2), y: (height/2)}
             }
