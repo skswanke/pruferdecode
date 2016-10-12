@@ -106,9 +106,9 @@ function prufer() {
             n = nodes.push(targetNode)
             links.push({source: sourceNode, target: targetNode})
             if(vertsLeft.length === 1){
-                lastNode = {name: vertsLeft[0], x: 0, y: 0}
+                minVert = {name: vertsLeft[0], x: 0, y: 0}
                 n = nodes.push(lastNode)
-                links.push({source: sourceNode, target: lastNode})
+                links.push({source: sourceNode, target: minVert})
             }
             code = code.pop[0]
             console.log(code)
@@ -122,6 +122,7 @@ function prufer() {
             sourceNode = {name: vertsLeft[0].toString(), x: 0, y: 0}
             targetNode = {name: vertsLeft[1].toString(), x: 0, y: 0}
             links.push({source: sourceNode, target: targetNode})
+            vertsLeft = []
         }
     }
 }
