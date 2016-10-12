@@ -95,7 +95,6 @@ function prufer() {
     }
     var vertsLeft = verts
     console.log(vertsLeft)
-    return
     while(vertsLeft){
         while(code){
             minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
