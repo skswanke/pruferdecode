@@ -110,8 +110,10 @@ function prufer() {
                 n = nodes.push(lastNode)
                 links.push({source: sourceNode, target: lastNode})
             }
-            code.pop[0]
-            vertsLeft.splice(minVert, 1)
+            code = code.pop[0]
+            console.log(code)
+            vertsLeft = vertsLeft.splice(minVert, 1)
+            console.log(vertsLeft)
             restart()
             setTimeout(function(){}, 500)
         }
