@@ -81,6 +81,7 @@ function prufer() {
         return 0
     }
     var inputsplit = input.split()
+    console.log(inputsplit)
     var code = []
     for(var j = 0; j<inputsplit.length; j++){
         code.push(parseInt(inputsplit[j]))
@@ -94,6 +95,7 @@ function prufer() {
     }
     var vertsLeft = verts
     console.log(vertsLeft)
+    return
     while(vertsLeft){
         while(code){
             minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
@@ -114,6 +116,7 @@ function prufer() {
             restart()
             setTimeout(function(){}, 500)
         }
+        console.log("Verts Left: " + vertsLeft.toString())
         if(vertsLeft.length > 1){
             sourceNode = {name: vertsLeft[0].toString(), x: 0, y: 0}
             targetNode = {name: vertsLeft[1].toString(), x: 0, y: 0}
