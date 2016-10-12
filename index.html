@@ -67,7 +67,9 @@ restart();
 
 function prufer() {
     var input = document.getElementById("code").value
+    console.log(input)
     if (input === "" || input === null || input === 'undefined' || !isNaN(input)){
+        console.log("invalid input")
         document.getElementById("code").append("Error")
         var para = document.createElement("p");
         var node = document.createTextNode("Error Please enter a valid string.");
@@ -79,6 +81,7 @@ function prufer() {
     for(var j = 0; j<inputsplit.length; j++){
         code.push(parseInt(inputsplit[j]))
     }
+    console.log(code)
     var n = svg.selectAll(".node").remove()
     var verts = []
     var edges = []
@@ -86,11 +89,14 @@ function prufer() {
         verts.push(i+1)
     }
     var vertsLeft = verts
+    console.log(vertsLeft)
     while(vertsLeft){
         while(code){
             minVert = Math.min.apply(Math, vertsLeft.filter(function(i) {return code.indexOf(i) < 0;}))
             sourceNode = {name: code[0].toString(), x: 0, y: 0}
             targetNode = {name: minVert.toString(), x: 0, y: 0}
+            console.log(sourceNode.name)
+            console.log(targetNode.name)
             n = nodes.push(sourceNode)
             n = nodes.push(targetNode)
             links.push({source: sourceNode, target: targetNode})
