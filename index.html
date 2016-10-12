@@ -106,8 +106,8 @@ function prufer() {
             console.log("node adds:")
             console.log(sourceNode)
             console.log(targetNode)
-            n = nodes.push(sourceNode)
-            n = nodes.push(targetNode)
+            nodes.push(sourceNode)
+            nodes.push(targetNode)
             links.push({source: sourceNode, target: targetNode})
             if(vertsLeft.length === 1){
                 minVert = {name: vertsLeft[0], x: 0, y: 0}
