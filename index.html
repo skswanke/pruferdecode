@@ -85,11 +85,11 @@ function prufer() {
         return 0
     }
     var inputsplit = input.split("")
-    console.log(inputsplit)
     var code = []
     for(var j = 0; j<inputsplit.length; j++){
         code.push(parseInt(inputsplit[j]))
     }
+    console.log("code:")
     console.log(code)
     var n = svg.selectAll(".node").remove()
     var verts = []
@@ -98,14 +98,17 @@ function prufer() {
         verts.push(i+1)
     }
     var vertsLeft = verts
+    console.log("vertsLeft:")
     console.log(vertsLeft)
     while(vertsLeft.length>1){
         while(code){
             possibleMins = vertsLeft.diff(code)
+            console.log("possibleMins:")
             console.log(possibleMins)
             minVert = Math.min.apply(Math, possibleMins)
             sourceNode = {name: code[0].toString(), x: 0, y: 0}
             targetNode = {name: minVert.toString(), x: 0, y: 0}
+            console.log("node adds:")
             console.log(sourceNode.name)
             console.log(targetNode.name)
             n = nodes.push(sourceNode)
@@ -118,8 +121,10 @@ function prufer() {
                 vertsLeft.pop[0]
             }
             code.pop[0]
+            console.log("code:")
             console.log(code)
             vertsLeft = vertsLeft.pop(minVert)
+            console.log("vertsLeft:")
             console.log(vertsLeft)
             restart()
             setTimeout(function(){}, 500)
