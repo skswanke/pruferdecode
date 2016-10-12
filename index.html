@@ -101,15 +101,15 @@ function prufer() {
             console.log("possibleMins:")
             console.log(possibleMins)
             minVert = Math.min.apply(Math, possibleMins)
-            sourceNode = {name: code[0].toString(), x: (width/2), y: (height/2)}
-            targetNode = {name: minVert.toString(), x: (width/2), y: (height/2)}
+            sourceNode = {id: code[0].toString(), x: (width/2), y: (height/2)}
+            targetNode = {id: minVert.toString(), x: (width/2), y: (height/2)}
             console.log("node adds:")
             console.log(sourceNode)
             console.log(targetNode)
             nodes.push(sourceNode, targetNode)
             links.push({source: sourceNode, target: targetNode})
             if(vertsLeft.length === 1){
-                minVert = {name: vertsLeft[0], x: 0, y: 0}
+                minVert = {id: vertsLeft[0], x: 0, y: 0}
                 n = nodes.push(lastNode)
                 links.push({source: sourceNode, target: minVert})
                 vertsLeft.pop[0]
@@ -125,8 +125,8 @@ function prufer() {
         }
         console.log("Verts Left: " + vertsLeft.toString())
         if(vertsLeft.length > 1){
-            sourceNode = {name: vertsLeft[0].toString(), x: 0, y: 0}
-            targetNode = {name: vertsLeft[1].toString(), x: 0, y: 0}
+            sourceNode = {id: vertsLeft[0].toString(), x: 0, y: 0}
+            targetNode = {id: vertsLeft[1].toString(), x: 0, y: 0}
             links.push({source: sourceNode, target: targetNode})
             vertsLeft = []
         }
