@@ -96,12 +96,13 @@ function prufer() {
     }
     console.log("code:")
     console.log(code)
+
     // Remove existing nodes/links
-    // TODO: this doesn't work
     var nodes = []
     var links = []
     force.nodes(nodes)
     force.links(links)
+
     var verts = []
     var edges = []
     for(var i=0;i<(input.length+2);i++){
@@ -110,14 +111,17 @@ function prufer() {
     var vertsLeft = verts
     console.log("vertsLeft:")
     console.log(vertsLeft)
+
     while(vertsLeft.length>1){
         while(code.length>0){
             // Get vertices not in prufer code but are in the set of vertices
             possibleMins = vertsLeft.diff(code)
             console.log("possibleMins:")
             console.log(possibleMins)
+
             // Get the minimum of these vertices
             minVert = Math.min.apply(Math, possibleMins)
+
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
             sourceNode = {id: code[0].toString()}
@@ -126,9 +130,11 @@ function prufer() {
             console.log(sourceNode)
             console.log(targetNode)
             nodes.push(sourceNode, targetNode)
+
             // Create an Edge between the vertices
             // TODO: put edge to existing vertices
             links.push({source: sourceNode, target: targetNode})
+
             // If prufer code is odd length this will run
             // TODO: this is wrong
             if(vertsLeft.length === 1){
@@ -137,20 +143,24 @@ function prufer() {
                 links.push({source: sourceNode, target: minVert})
                 vertsLeft.pop[0]
             }
+
             // Remove vertex from prufer code
             code.shift()
             console.log("code:")
             console.log(code)
+
             // Remove min vertex from remain vertices
             vertsLeft.splice(vertsLeft.indexOf(minVert), 1)
             console.log("vertsLeft:")
             console.log(vertsLeft)
             console.log(nodes)
+            
             // Restart force layout
             setTimeout(function(){return}, 500)
             restart()
         }
         console.log("Verts Left: " + vertsLeft.toString())
+        
         // This will run if prufer code is even length
         // Connect final remaining vertices in remaining vertices
         if(vertsLeft.length > 1){
