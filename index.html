@@ -125,13 +125,13 @@ function prufer() {
 
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
-            if(!nodeLoc.contains(code[0])){
+            if(!(code[0] in nodeLoc)){
                 sourceNode = {id: code[0].toString()}
                 nodeLoc[code[0]] = nodes.length - 1
             } else {
                 sourceNode = nodes[nodeLoc[code[0]]]
             }
-            if(!nodeLoc.contains(code[0])){
+            if(!(code[0] in nodeLoc)){
                 targetNode = {id: minVert.toString()}
                 nodeLoc[minVert] = nodes.length - 1
             } else {
