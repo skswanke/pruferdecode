@@ -117,7 +117,7 @@ function prufer() {
                 console.log(sourceNode)
                 nodes.push(sourceNode)
             } else {
-                console.log("Link node:")
+                console.log("Code link node:")
                 console.log(nodes[code[0].toString()])
                 links.push({source: sourceNode, target: nodes[code[0].toString()]})
                 shouldLink = false
@@ -128,7 +128,7 @@ function prufer() {
                 nodes.push(targetNode)
                 console.log(targetNode)
             } else {
-                console.log("Link node:")
+                console.log("Minvert link node:")
                 console.log(nodes[minVert.toString()])
                 links.push({source: sourceNode, target: nodes[minVert.toString()]})
                 shouldLink = false
