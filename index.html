@@ -116,8 +116,8 @@ function prufer() {
             console.log("Is " + code[0].toString() + "in nodes: " + (code[0].toString() in nodes).toString())
             var isCodeInNodes = false
             for (var k in nodes) {
-                if (!obj.hasOwnProperty(k)) continue;
-                if (obj[k] === code[0].toString()) {
+                if (!nodes.hasOwnProperty(k)) continue;
+                if (nodes[k] === code[0].toString()) {
                     isCodeInNodes = true
                 }
             }           
