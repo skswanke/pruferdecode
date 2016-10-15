@@ -119,6 +119,7 @@ function prufer() {
                 nodeLoc[code[0].toString()] = nodes.length - 1
                 nodes.push(sourceNode)
             } else {
+                console.log(nodes[nodeLoc[code[0].toString()]])
                 links.push({source: sourceNode, target: nodes[nodeLoc[code[0].toString()]]})
                 shouldLink = false
             }
@@ -128,12 +129,16 @@ function prufer() {
                 console.log(targetNode)
                 nodeLoc[minVert.toString()] = nodes.length - 1
             } else {
+                nodes[nodeLoc[code[0].toString()]]
                 links.push({source: sourceNode, target: nodes[nodeLoc[minVert.toString()]]})
+                shouldLink = false
             }
 
             // Create an Edge between the vertices
             // TODO: put edge to existing vertices
-            links.push({source: sourceNode, target: targetNode})
+            if(shouldLink){
+                links.push({source: sourceNode, target: targetNode})
+            }
 
             // Remove vertex from prufer code
             code.shift()
