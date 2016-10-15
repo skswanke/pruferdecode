@@ -115,7 +115,7 @@ function prufer() {
             var shouldLink = true
             console.log("Is " + code[0].toString() + "in nodes: " + (code[0].toString() in nodes).toString())
             var isCodeInNodes = false
-            for (var k in obj) {
+            for (var k in nodes) {
                 if (!obj.hasOwnProperty(k)) continue;
                 if (obj[k] === code[0].toString()) {
                     isCodeInNodes = true
