@@ -163,7 +163,7 @@ function prufer() {
         if(vertsLeft[0].toString() in nodes){
             targetNode = {id: vertsLeft[1].toString()}
             links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
-        } else {
+        } else if (vertsLeft[1].toString() in nodes){
             targetNode = {id: vertsLeft[0].toString()}
             links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
         }
