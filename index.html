@@ -85,7 +85,6 @@ function prufer() {
 
     // Remove existing nodes/links
     var nodes = []
-    var nodeLoc = {}
     var links = []
     force.nodes(nodes)
     force.links(links)
@@ -112,28 +111,26 @@ function prufer() {
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
-            if(!(code[0].toString() in nodeLoc)){
+            if(!(code[0].toString() in nodes)){
                 console.log("Code node adds:")
                 sourceNode = {id: code[0].toString()}
                 console.log(sourceNode)
-                nodeLoc[code[0].toString()] = nodes.length - 2
                 nodes.push(sourceNode)
             } else {
                 console.log("Link node:")
-                console.log(nodes[nodeLoc[code[0].toString()]])
-                links.push({source: sourceNode, target: nodes[nodeLoc[code[0].toString()]]})
+                console.log(nodes[code[0].toString()])
+                links.push({source: sourceNode, target: nodes[code[0].toString()]})
                 shouldLink = false
             }
-            if(!(minVert.toString() in nodeLoc)){
+            if(!(minVert.toString() in nodes)){
                 console.log("Min node adds:")
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
                 console.log(targetNode)
-                nodeLoc[minVert.toString()] = nodes.length - 2
             } else {
                 console.log("Link node:")
-                console.log(nodes[nodeLoc[code[0].toString()]])
-                links.push({source: sourceNode, target: nodes[nodeLoc[minVert.toString()]]})
+                console.log(nodes[code[0].toString()])
+                links.push({source: sourceNode, target: nodes[minVert.toString()]})
                 shouldLink = false
             }
 
