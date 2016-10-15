@@ -58,25 +58,11 @@ var nodes = force.nodes(),
     node = svg.selectAll(".node"),
     link = svg.selectAll(".link");
 
-var cursor = svg.append("circle")
-    .attr("r", 30)
-    .attr("transform", "translate(-100,-100)")
-    .attr("class", "cursor");
-
 restart();
 
 Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
-
-function findWithAttr(array, attr, value) {
-    for(var i = 0; i < array.length; i += 1) {
-        if(array[i][attr] === value) {
-            return i;
-        }
-    }
-    return -1;
-}
 
 function prufer() {
     // Parse input
@@ -125,17 +111,19 @@ function prufer() {
 
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
+            var shouldLink = true
             if(!(code[0] in nodeLoc)){
                 sourceNode = {id: code[0].toString()}
-                nodeLoc[code[0]] = nodes.length - 1
+                nodeLoc[code[0].toString()] = nodes.length - 1
             } else {
-                sourceNode = nodes[nodeLoc[code[0]]]
+                links.push({source: sourceNode, target: nodes[nodeLoc[code[0].toString()]]})
+                shouldLink = false
             }
             if(!(code[0] in nodeLoc)){
                 targetNode = {id: minVert.toString()}
-                nodeLoc[minVert] = nodes.length - 1
+                nodeLoc[minVert.toString()] = nodes.length - 1
             } else {
-                targetNode = nodes[nodeLoc[minVert]]
+                links.push({source: sourceNode, target: nodes[nodeLoc[minVert.toString()]]})
             }
             console.log("node adds:")
             console.log(sourceNode)
