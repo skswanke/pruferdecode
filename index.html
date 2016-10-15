@@ -162,9 +162,11 @@ function prufer() {
         //Connect final remaining vertices in remaining vertices
         if(vertsLeft[0].toString() in nodes){
             targetNode = {id: vertsLeft[1].toString()}
+            nodes.push(targetNode)
             links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
         } else if (vertsLeft[1].toString() in nodes){
             targetNode = {id: vertsLeft[0].toString()}
+            nodes.push(targetNode)
             links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
         }
         vertsLeft = []
