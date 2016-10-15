@@ -159,15 +159,15 @@ function prufer() {
         console.log("Verts Left: " + vertsLeft.toString())
 
         // This will run if prufer code is even length
-        // Connect final remaining vertices in remaining vertices
-        // if(vertsLeft[0].toString() in nodeLoc){
-        //     targetNode = {id: vertsLeft[1].toString()}
-        //     links.push({source: nodes[nodeLoc[vertsLeft[0].toString()]], target: targetNode})
-        // } else {
-        //     targetNode = {id: vertsLeft[0].toString()}
-        //     links.push({source: nodes[nodeLoc[vertsLeft[1].toString()]], target: targetNode})
-        // }
-        // vertsLeft = []
+        Connect final remaining vertices in remaining vertices
+        if(vertsLeft[0].toString() in nodes){
+            targetNode = {id: vertsLeft[1].toString()}
+            links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
+        } else {
+            targetNode = {id: vertsLeft[0].toString()}
+            links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
+        }
+        vertsLeft = []
     }
 }
 
