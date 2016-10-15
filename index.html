@@ -123,8 +123,8 @@ function prufer() {
                 shouldLink = false
             }
             if(!(minVert.toString() in nodeLoc)){
-                nodes.push(targetNode)
                 targetNode = {id: minVert.toString()}
+                nodes.push(targetNode)
                 console.log(targetNode)
                 nodeLoc[minVert.toString()] = nodes.length - 1
             } else {
