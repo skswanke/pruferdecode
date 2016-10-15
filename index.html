@@ -111,6 +111,7 @@ function prufer() {
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
+            console.log("Is " + code[0].toString() + "in nodes: " + (code[0].toString() in nodes).toString())
             if(!(code[0].toString() in nodes)){
                 console.log("Code node adds:")
                 sourceNode = {id: code[0].toString()}
