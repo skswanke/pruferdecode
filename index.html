@@ -116,7 +116,7 @@ function prufer() {
                 console.log("Code node adds:")
                 sourceNode = {id: code[0].toString()}
                 console.log(sourceNode)
-                nodeLoc[code[0].toString()] = nodes.length - 1
+                nodeLoc[code[0].toString()] = nodes.length - 2
                 nodes.push(sourceNode)
             } else {
                 console.log("Link node:")
@@ -129,7 +129,7 @@ function prufer() {
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
                 console.log(targetNode)
-                nodeLoc[minVert.toString()] = nodes.length - 1
+                nodeLoc[minVert.toString()] = nodes.length - 2
             } else {
                 console.log("Link node:")
                 console.log(nodes[nodeLoc[code[0].toString()]])
