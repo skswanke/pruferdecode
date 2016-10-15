@@ -99,6 +99,7 @@ function prufer() {
 
     // Remove existing nodes/links
     var nodes = []
+    var nodeLoc = {}
     var links = []
     force.nodes(nodes)
     force.links(links)
@@ -124,8 +125,18 @@ function prufer() {
 
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
-            sourceNode = {id: code[0].toString()}
-            targetNode = {id: minVert.toString()}
+            if(!nodeLoc.contains(code[0])){
+                sourceNode = {id: code[0].toString()}
+                nodeLoc[code[0]] = nodes.length - 1
+            } else {
+                sourceNode = nodes[nodeLoc[code[0]]]
+            }
+            if(!nodeLoc.contains(code[0])){
+                targetNode = {id: minVert.toString()}
+                nodeLoc[minVert] = nodes.length - 1
+            } else {
+                targetNode = nodes[nodeLoc[minVert]]
+            }
             console.log("node adds:")
             console.log(sourceNode)
             console.log(targetNode)
@@ -160,7 +171,7 @@ function prufer() {
             restart()
         }
         console.log("Verts Left: " + vertsLeft.toString())
-        
+
         // This will run if prufer code is even length
         // Connect final remaining vertices in remaining vertices
         if(vertsLeft.length > 1){
