@@ -64,6 +64,10 @@ Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
+function checkId(node, id){
+    return node.id == id
+}
+
 function prufer() {
     // Parse input
     var input = document.getElementById("code").value
@@ -114,7 +118,9 @@ function prufer() {
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
             var isCodeInNodes = false
+            console.log("Id Check:")
             for (var k=0; k < nodes.length; k++) {
+                console.log(nodes[k].id)
                 if (nodes[k].id == code[0].toString()) {
                     isMinInNodes = true
                 }
@@ -146,6 +152,7 @@ function prufer() {
             if(!isMinInNodes){
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
+                console.log("Min node adds:")
                 console.log(targetNode.id)
             } else {
                 links.push({source: sourceNode, target: nodes[minVert.toString()]})
