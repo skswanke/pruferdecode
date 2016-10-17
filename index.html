@@ -113,29 +113,29 @@ function prufer() {
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
-            console.log("Is " + code[0].toString() + " in nodes: " + (code[0].toString() in nodes).toString())
             var isCodeInNodes = false
             for (var k in nodes) {
                 if (!nodes.hasOwnProperty(k)) continue;
                 if (nodes["id"] === code[0].toString()) {
                     isCodeInNodes = true
                 }
-            }           
+            }
+            console.log("Is " + code[0].toString() + " in nodes: " + isCodeInNodes.toString())
             if(!isCodeInNodes){
-                console.log("Code node adds:")
                 sourceNode = {id: code[0].toString()}
-                console.log(sourceNode.id)
                 nodes.push(sourceNode)
+                console.log("Code node adds:")
+                console.log(sourceNode.id)
             } else {
+                links.push({source: sourceNode, target: nodes[code[0].toString()]})
+                shouldLink = false
                 console.log("Code link node:")
                 console.log(nodes[code[0].toString()].id)
-                links.push({source: sourceNode, target: nodes[code[0].toString()]})
                 console.log("Final Links Add:")
                 console.log("source:") 
                 console.log(sourceNode)
                 console.log("target:")
                 console.log(nodes[code[0].toString()])
-                shouldLink = false
             }
             var isMinInNodes = false
             for (var k in nodes) {
@@ -143,22 +143,22 @@ function prufer() {
                 if (nodes["id"] === minVert.toString()) {
                     isMinInNodes = true
                 }
-            }     
+            }
+            console.log("Is " + minVert.toString() + " in nodes: " + isMinInNodes.toString())
             if(!isMinInNodes){
-                console.log("Min node adds:")
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
                 console.log(targetNode.id)
             } else {
+                links.push({source: sourceNode, target: nodes[minVert.toString()]})
+                shouldLink = false
                 console.log("Minvert link node:")
                 console.log(nodes[minVert.toString()].id)
-                links.push({source: sourceNode, target: nodes[minVert.toString()]})
                 console.log("Final Links Add:")
                 console.log("source:") 
                 console.log(sourceNode)
                 console.log("target:")
                 console.log(nodes[minVert.toString()])
-                shouldLink = false
             }
 
             // Create an Edge between the vertices
