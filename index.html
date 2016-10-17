@@ -114,10 +114,9 @@ function prufer() {
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
             var isCodeInNodes = false
-            for (var k in nodes) {
-                if (!nodes.hasOwnProperty(k)) continue;
-                if (nodes["id"] === code[0].toString()) {
-                    isCodeInNodes = true
+            for (var k; k < nodes.length; k++) {
+                if (nodes[k].id === code[0].toString()) {
+                    isMinInNodes = true
                 }
             }
             console.log("Is " + code[0].toString() + " in nodes: " + isCodeInNodes.toString())
@@ -138,9 +137,8 @@ function prufer() {
                 console.log(nodes[code[0].toString()])
             }
             var isMinInNodes = false
-            for (var k in nodes) {
-                if (!nodes.hasOwnProperty(k)) continue;
-                if (nodes["id"] === minVert.toString()) {
+            for (var k; k < nodes.length; k++) {
+                if (nodes[k].id === minVert.toString()) {
                     isMinInNodes = true
                 }
             }
