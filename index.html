@@ -114,7 +114,7 @@ function prufer() {
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
             var isCodeInNodes = false
-            for (var k; k < nodes.length; k++) {
+            for (var k=0; k < nodes.length; k++) {
                 if (nodes[k].id == code[0].toString()) {
                     isMinInNodes = true
                 }
@@ -137,7 +137,7 @@ function prufer() {
                 console.log(nodes[code[0].toString()])
             }
             var isMinInNodes = false
-            for (var k; k < nodes.length; k++) {
+            for (var k=0; k < nodes.length; k++) {
                 if (nodes[k].id == minVert.toString()) {
                     isMinInNodes = true
                 }
@@ -180,7 +180,9 @@ function prufer() {
             console.log("vertsLeft:")
             console.log(vertsLeft.toString())
             console.log("Nodes:")
-            console.log(nodes)
+            for(var j=0; j<nodes.length;j++){
+                console.log(nodes[j])
+            }
             console.log("--------------------------------------------------------")
             // Restart force layout
             restart()
