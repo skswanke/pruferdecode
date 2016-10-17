@@ -81,7 +81,7 @@ function prufer() {
         code.push(parseInt(inputsplit[j]))
     }
     console.log("code:")
-    console.log(code)
+    console.log(code.toString())
 
     // Remove existing nodes/links
     var nodes = []
@@ -98,16 +98,14 @@ function prufer() {
     }
     var vertsLeft = verts
     console.log("vertsLeft:")
-    console.log(vertsLeft)
+    console.log(vertsLeft.toString())
 
     while(vertsLeft.length>0){
         while(code.length>0){
             // Get vertices not in prufer code but are in the set of vertices
             possibleMins = vertsLeft.diff(code)
             console.log("possibleMins:")
-            for(min in possibleMins){
-                console.log(min.id)
-            }
+            console.log(possibleMins.toString())
 
             // Get the minimum of these vertices
             minVert = Math.min.apply(Math, possibleMins)
