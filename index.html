@@ -130,6 +130,11 @@ function prufer() {
                 console.log("Code link node:")
                 console.log(nodes[code[0].toString()].id)
                 links.push({source: sourceNode, target: nodes[code[0].toString()]})
+                console.log("Final Links Add:")
+                console.log("source:") 
+                console.log(sourceNode)
+                console.log("target:")
+                console.log(nodes[code[0].toString()])
                 shouldLink = false
             }
             if(!(minVert.toString() in nodes)){
@@ -141,6 +146,11 @@ function prufer() {
                 console.log("Minvert link node:")
                 console.log(nodes[minVert.toString()].id)
                 links.push({source: sourceNode, target: nodes[minVert.toString()]})
+                console.log("Final Links Add:")
+                console.log("source:") 
+                console.log(sourceNode)
+                console.log("target:")
+                console.log(nodes[minVert.toString()])
                 shouldLink = false
             }
 
@@ -148,6 +158,11 @@ function prufer() {
             // TODO: put edge to existing vertices
             if(shouldLink){
                 links.push({source: sourceNode, target: targetNode})
+                console.log("Final Links Add:")
+                console.log("source:") 
+                console.log(sourceNode)
+                console.log("target:")
+                console.log(targetNode)
             }
 
             // Remove vertex from prufer code
@@ -175,6 +190,11 @@ function prufer() {
             console.log("Final Add:")
             console.log(targetNode.id)
             links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
+            console.log("Final Links Add:")
+            console.log("source:") 
+            console.log(nodes[vertsLeft[0].toString()])
+            console.log("target:")
+            console.log(targetNode)
         } else if (vertsLeft[1].toString() in nodes){
             targetNode = {id: vertsLeft[0].toString()}
             nodes.push(targetNode)
