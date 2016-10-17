@@ -117,7 +117,7 @@ function prufer() {
             var isCodeInNodes = false
             for (var k in nodes) {
                 if (!nodes.hasOwnProperty(k)) continue;
-                if (nodes[k] === code[0].toString()) {
+                if (nodes["id"] === code[0].toString()) {
                     isCodeInNodes = true
                 }
             }           
@@ -137,7 +137,14 @@ function prufer() {
                 console.log(nodes[code[0].toString()])
                 shouldLink = false
             }
-            if(!(minVert.toString() in nodes)){
+            var isMinInNodes = false
+            for (var k in nodes) {
+                if (!nodes.hasOwnProperty(k)) continue;
+                if (nodes["id"] === minVert.toString()) {
+                    isMinInNodes = true
+                }
+            }     
+            if(!isMinInNodes){
                 console.log("Min node adds:")
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
