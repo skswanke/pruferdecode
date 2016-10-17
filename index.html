@@ -115,7 +115,7 @@ function prufer() {
             var shouldLink = true
             var isCodeInNodes = false
             for (var k; k < nodes.length; k++) {
-                if (nodes[k].id === code[0].toString()) {
+                if (nodes[k].id == code[0].toString()) {
                     isMinInNodes = true
                 }
             }
@@ -130,7 +130,7 @@ function prufer() {
                 shouldLink = false
                 console.log("Code link node:")
                 console.log(nodes[code[0].toString()].id)
-                console.log("Final Links Add:")
+                console.log("Links Add:")
                 console.log("source:") 
                 console.log(sourceNode)
                 console.log("target:")
@@ -138,7 +138,7 @@ function prufer() {
             }
             var isMinInNodes = false
             for (var k; k < nodes.length; k++) {
-                if (nodes[k].id === minVert.toString()) {
+                if (nodes[k].id == minVert.toString()) {
                     isMinInNodes = true
                 }
             }
@@ -152,7 +152,7 @@ function prufer() {
                 shouldLink = false
                 console.log("Minvert link node:")
                 console.log(nodes[minVert.toString()].id)
-                console.log("Final Links Add:")
+                console.log("Links Add:")
                 console.log("source:") 
                 console.log(sourceNode)
                 console.log("target:")
@@ -163,7 +163,7 @@ function prufer() {
             // TODO: put edge to existing vertices
             if(shouldLink){
                 links.push({source: sourceNode, target: targetNode})
-                console.log("Final Links Add:")
+                console.log("Links Add:")
                 console.log("source:") 
                 console.log(sourceNode)
                 console.log("target:")
