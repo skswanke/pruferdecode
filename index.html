@@ -153,9 +153,7 @@ function prufer() {
             // Remove vertex from prufer code
             code.shift()
             console.log("code:")
-            for(a in code){
-                console.log(a)
-            }
+            console.log(code.toString())
 
             // Remove min vertex from remain vertices
             vertsLeft.splice(vertsLeft.indexOf(minVert), 1)
