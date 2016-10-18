@@ -121,6 +121,8 @@ function prufer() {
             console.log("Id Check:")
             for (var k=0; k < nodes.length; k++) {
                 console.log(nodes[k].id)
+                console.log(code[0].toString())
+                console.log("Equal? : " + nodes[k].id == code[0].toString())
                 if (nodes[k].id == code[0].toString()) {
                     isMinInNodes = true
                 }
