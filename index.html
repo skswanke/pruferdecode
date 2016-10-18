@@ -118,66 +118,44 @@ function prufer() {
             // TODO: Make sure this connects existing nodes
             var shouldLink = true
             var isCodeInNodes = false
-            console.log("Id Check:")
+            var codeNodeLoc = -1
             for (var k=0; k < nodes.length; k++) {
-                console.log("Node: " + nodes[k].id)
-                console.log("Code: " + code[0].toString())
-                console.log("Equal? : " + (nodes[k].id == code[0].toString()).toString())
                 if (nodes[k].id == code[0].toString()) {
                     isCodeInNodes = true
+                    codeNodeLoc = k
                 }
             }
-            console.log("Is " + code[0].toString() + " in nodes: " + isCodeInNodes.toString())
             if(!isCodeInNodes){
                 sourceNode = {id: code[0].toString()}
                 nodes.push(sourceNode)
+                codeNodeLoc = nodes.length - 1 
                 console.log("Code node adds:")
                 console.log(sourceNode.id)
-            } else {
-                links.push({source: sourceNode, target: nodes[code[0].toString()]})
-                shouldLink = false
-                console.log("Code link node:")
-                console.log(nodes[code[0].toString()].id)
-                console.log("Links Add:")
-                console.log("source:") 
-                console.log(sourceNode)
-                console.log("target:")
-                console.log(nodes[code[0].toString()])
             }
             var isMinInNodes = false
+            var minNodeLoc = -1
             for (var k=0; k < nodes.length; k++) {
                 if (nodes[k].id == minVert.toString()) {
                     isMinInNodes = true
+                    minNodeLoc = k
                 }
             }
             console.log("Is " + minVert.toString() + " in nodes: " + isMinInNodes.toString())
             if(!isMinInNodes){
                 targetNode = {id: minVert.toString()}
                 nodes.push(targetNode)
+                minNodeLoc = nodes.length - 1
                 console.log("Min node adds:")
                 console.log(targetNode.id)
-            } else {
-                links.push({source: sourceNode, target: nodes[minVert.toString()]})
-                shouldLink = false
-                console.log("Minvert link node:")
-                console.log(nodes[minVert.toString()].id)
-                console.log("Links Add:")
-                console.log("source:") 
-                console.log(sourceNode)
-                console.log("target:")
-                console.log(nodes[minVert.toString()])
             }
 
             // Create an Edge between the vertices
-            // TODO: put edge to existing vertices
-            if(shouldLink){
-                links.push({source: sourceNode, target: targetNode})
-                console.log("Links Add:")
-                console.log("source:") 
-                console.log(sourceNode)
-                console.log("target:")
-                console.log(targetNode)
-            }
+            links.push({source: nodes[codeNodeLoc], target: nodes[minNodeLoc]})
+            console.log("Links Add:")
+            console.log("source:") 
+            console.log(sourceNode)
+            console.log("target:")
+            console.log(targetNode)
 
             // Remove vertex from prufer code
             code.shift()
