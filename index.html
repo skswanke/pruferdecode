@@ -125,6 +125,7 @@ function prufer() {
                     codeNodeLoc = k
                 }
             }
+            console.log("Is " + code[0].toString() + " in nodes: " + isCodeInNodes.toString())
             if(!isCodeInNodes){
                 sourceNode = {id: code[0].toString()}
                 nodes.push(sourceNode)
