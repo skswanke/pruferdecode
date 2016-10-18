@@ -123,6 +123,7 @@ function prufer() {
                 if (nodes[k].id == code[0].toString()) {
                     isCodeInNodes = true
                     codeNodeLoc = k
+                    break
                 }
             }
             console.log("Is " + code[0].toString() + " in nodes: " + isCodeInNodes.toString())
@@ -139,6 +140,7 @@ function prufer() {
                 if (nodes[k].id == minVert.toString()) {
                     isMinInNodes = true
                     minNodeLoc = k
+                    break
                 }
             }
             console.log("Is " + minVert.toString() + " in nodes: " + isMinInNodes.toString())
