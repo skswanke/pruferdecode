@@ -196,14 +196,13 @@ function prufer() {
         }
         console.log("Verts Left: " + vertsLeft.toString())
 
-        // This will run if prufer code is even length
         //Connect final remaining vertices in remaining vertices
         if(vertsLeft[0].toString() in nodes){
             targetNode = {id: vertsLeft[1].toString()}
             nodes.push(targetNode)
+            links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
             console.log("Final Add:")
             console.log(targetNode.id)
-            links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
             console.log("Final Links Add:")
             console.log("source:") 
             console.log(nodes[vertsLeft[0].toString()])
@@ -212,9 +211,9 @@ function prufer() {
         } else if (vertsLeft[1].toString() in nodes){
             targetNode = {id: vertsLeft[0].toString()}
             nodes.push(targetNode)
+            links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
             console.log("Final Add:")
             console.log(targetNode.id)
-            links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
         }
         vertsLeft = []
 
