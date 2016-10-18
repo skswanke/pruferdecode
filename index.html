@@ -116,7 +116,6 @@ function prufer() {
 
             // Create Nodes for prufer vertex and minimum vertex
             // TODO: Make sure this connects existing nodes
-            var shouldLink = true
             var isCodeInNodes = false
             var codeNodeLoc = -1
             for (var k=0; k < nodes.length; k++) {
@@ -180,21 +179,30 @@ function prufer() {
         console.log("Verts Left: " + vertsLeft.toString())
 
         //Connect final remaining vertices in remaining vertices
-        if(vertsLeft[0].toString() in nodes){
+        var is1InNodes = false
+        var zeroLoc = 0
+        for (var k=0; k < nodes.length; k++) {
+            if (nodes[k].id == vertsLeft[0].toString()) {
+                is0InNodes = true
+                zeroLoc = k
+                break
+            }
+        }
+        if(is0InNodes){
             targetNode = {id: vertsLeft[1].toString()}
             nodes.push(targetNode)
-            links.push({source: nodes[vertsLeft[0].toString()], target: targetNode})
+            links.push({source: nodes[zeroLoc], target: nodes[nodes.length-1]})
             console.log("Final Add:")
-            console.log(targetNode.id)
+            console.log(nodes[nodes.length-1].id)
             console.log("Final Links Add:")
             console.log("source:") 
-            console.log(nodes[vertsLeft[0].toString()])
+            console.log(nodes[zeroLoc])
             console.log("target:")
-            console.log(targetNode)
-        } else if (vertsLeft[1].toString() in nodes){
+            console.log(nodes[nodes.length-1])
+        } else {
             targetNode = {id: vertsLeft[0].toString()}
             nodes.push(targetNode)
-            links.push({source: nodes[vertsLeft[1].toString()], target: targetNode})
+            links.push({source: nodes[vertsLeft[1].toString()], target: nodes[nodes.length-1]})
             console.log("Final Add:")
             console.log(targetNode.id)
         }
