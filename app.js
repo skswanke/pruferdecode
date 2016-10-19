@@ -36,10 +36,13 @@ function checkId(node, id){
 
 function prufer() {
     // Parse input
+    if(document.getElementById("error").classList.contains("show")){
+        document.getElementById("error").classList.remove("show")
+    }
     var input = document.getElementById("code").value
     if (input === "" || input === null || input === 'undefined' || isNaN(input)){
         console.log("invalid input")
-        document.getElementById("error").innerHTML = "Error: Enter a number."
+        document.getElementById("error").classList.add("show")
         return 0
     }
     var inputsplit = input.split("")
