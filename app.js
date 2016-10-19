@@ -40,7 +40,7 @@ function prufer() {
         document.getElementById("error").classList.remove("show")
     }
     var input = document.getElementById("code").value
-    if (input === "" || input === null || input === 'undefined' || isNaN(input) || input.split("").contains("0")){
+    if (input === "" || input === null || input === 'undefined' || isNaN(input) || input.split("").includes("0")){
         console.log("invalid input")
         document.getElementById("error").classList.add("show")
         return 0
