@@ -166,7 +166,7 @@ function prufer() {
         console.log("Verts Left: " + vertsLeft.toString())
 
         //Connect final remaining vertices in remaining vertices
-        var is1InNodes = false
+        var is0InNodes = false
         var zeroLoc = 0
         for (var k=0; k < nodes.length; k++) {
             if (nodes[k].id == vertsLeft[0].toString()) {
@@ -192,6 +192,11 @@ function prufer() {
             links.push({source: nodes[vertsLeft[1].toString()], target: nodes[nodes.length-1]})
             console.log("Final Add:")
             console.log(targetNode.id)
+            console.log("Final Links Add:")
+            console.log("source:") 
+            console.log(nodes[zeroLoc])
+            console.log("target:")
+            console.log(nodes[nodes.length-1])
         }
         vertsLeft = []
 
