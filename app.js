@@ -167,15 +167,20 @@ function prufer() {
 
         //Connect final remaining vertices in remaining vertices
         var is0InNodes = false
+        var is1InNodes = false
         var zeroLoc = 0
+        var oneLoc = 0
         for (var k=0; k < nodes.length; k++) {
             if (nodes[k].id == vertsLeft[0].toString()) {
                 is0InNodes = true
                 zeroLoc = k
-                break
+            }
+            if (nodes[k].id == vertsLeft[1].toString()) {
+                is1InNodes = true
+                oneLoc = k
             }
         }
-        if(is0InNodes){
+        if(is0InNodes && !is1InNodes){
             targetNode = {id: vertsLeft[1].toString()}
             nodes.push(targetNode)
             links.push({source: nodes[zeroLoc], target: nodes[nodes.length-1]})
@@ -186,10 +191,10 @@ function prufer() {
             console.log(nodes[zeroLoc])
             console.log("target:")
             console.log(nodes[nodes.length-1])
-        } else {
+        } else if (is1InNodes && !is0InNodes) {
             targetNode = {id: vertsLeft[0].toString()}
             nodes.push(targetNode)
-            links.push({source: nodes[vertsLeft[1].toString()], target: nodes[nodes.length-1]})
+            links.push({source: nodes[oneLoc], target: nodes[nodes.length-1]})
             console.log("Final Add:")
             console.log(targetNode.id)
             console.log("Final Links Add:")
@@ -197,6 +202,8 @@ function prufer() {
             console.log(nodes[zeroLoc])
             console.log("target:")
             console.log(nodes[nodes.length-1])
+        } else if (is0InNodes && is1InNodes) {
+            links.push({source: nodes[oneLoc], target: nodes[zeroLoc]})
         }
         vertsLeft = []
 
