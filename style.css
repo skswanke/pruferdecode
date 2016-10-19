@@ -21,6 +21,8 @@ rect {
 }
 
 #error{
+    display: none;
+    justify-content: center;
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid transparent;
@@ -28,6 +30,10 @@ rect {
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
+}
+
+.show{
+    display: flex;
 }
 
 .link {
