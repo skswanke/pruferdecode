@@ -30,11 +30,12 @@ Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
-function checkId(node, id){
-    return node.id == id
+function hideInstructions() {
+    document.getElementById("info").classList.add("hide")
 }
 
 function prufer() {
+    hideInstructions()
     // Parse input
     if(document.getElementById("error").classList.contains("show")){
         document.getElementById("error").classList.remove("show")
