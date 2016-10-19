@@ -59,15 +59,15 @@ function prufer() {
         var error = document.getElementById("error")
         error.classList.add("show")
         if (input === "" || input === null || input === 'undefined'){
-            error.innerHtml = "Error: Code must not be empty."
+            error.textContent = "Error: Code must not be empty."
         } else if (isNaN(input)) {
-            error.innerHtml = "Error: Code must be a number."
+            error.textContent = "Error: Code must be a number."
         } else if (isZero) {
-            error.innerHtml = "Error: Code must not contain 0."
+            error.textContent = "Error: Code must not contain 0."
         } else if (tooBig) {
-            error.innerHtml = "Error: Code must not contain a number larger than the length of the code + 2 (i.e \"1234\" each must be <= 6)."
+            error.textContent = "Error: Code must not contain a number larger than the length of the code + 2 (i.e \"1234\" each must be <= 6)."
         } else {
-            error.innerHtml = "Error: Not sure what you did, but don't do it again."
+            error.textContent = "Error: Not sure what you did, but don't do it again."
         }
         return 0
     }
