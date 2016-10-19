@@ -49,6 +49,10 @@ rect {
   display: flex !important;
 }
 
+.hide{
+  display: none !important;
+}
+
 .link {
   stroke: #f70000;
   stroke-width: 2px;
