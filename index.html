@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <div class="innerContainer">
-            <input type="number" id="code" placeholder="1234" onkeydown="if(event.keyCode == 13){prufer(); return false;}">
+            <input type="number" id="code" placeholder="1234" onkeydown="if(event.keyCode == 13){prufer(); return false;}" autofocus>
             <input type="button" onclick="prufer()" class="btn" value="Go!">
         </div>
         <span id="error">Error: Enter a number with no 0's and each digit lower than the length of the number + 2.</span>
