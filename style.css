@@ -33,7 +33,7 @@ rect {
 }
 
 .show{
-    display: flex;
+    display: flex !important;
 }
 
 .link {
