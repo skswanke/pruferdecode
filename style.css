@@ -22,6 +22,7 @@ rect {
 
 #info {
   display: flex;
+  text-align: center;
   justify-content: center;
   padding: .75rem 1.25rem;
   margin-bottom: 1rem;
