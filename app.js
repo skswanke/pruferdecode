@@ -52,7 +52,7 @@ function prufer() {
         if(temp >inputsplit.length + 2){
             tooBig = true
         }
-        code.push()
+        code.push(temp)
     }
     if (input === "" || input === null || input === 'undefined' || isNaN(input) || isZero || tooBig){
         console.log("invalid input")
