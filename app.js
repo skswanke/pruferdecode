@@ -64,7 +64,7 @@ function prufer() {
     var verts = []
     var edges = []
     for(var i=0;i<(input.length+2);i++){
-        verts.push(i+1)
+        verts.push(i)
     }
     var vertsLeft = verts
     console.log("vertsLeft:")
