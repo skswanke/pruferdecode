@@ -40,7 +40,7 @@ function prufer() {
         document.getElementById("error").classList.remove("show")
     }
     var input = document.getElementById("code").value
-    if (input === "" || input === null || input === 'undefined' || isNaN(input)){
+    if (input === "" || input === null || input === 'undefined' || isNaN(input) || input.split("").contains("0")){
         console.log("invalid input")
         document.getElementById("error").classList.add("show")
         return 0
@@ -64,7 +64,7 @@ function prufer() {
     var verts = []
     var edges = []
     for(var i=0;i<(input.length+2);i++){
-        verts.push(i)
+        verts.push(i+1)
     }
     var vertsLeft = verts
     console.log("vertsLeft:")
