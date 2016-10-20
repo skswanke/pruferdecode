@@ -242,8 +242,8 @@ function restart() {
     
     node.append("text")
         .attr("text-anchor", "middle")
-        .attr("dx", 12)
-        .attr("dy", ".35em")
+//         .attr("dx", 12)
+//         .attr("dy", ".35em")
         .text(function(d) { return d.id })
 //     node.append("text").attr("dx", 12).attr("dy", ".35em").text(function(d) { return d.id })
     node.exit().remove()
