@@ -236,10 +236,10 @@ function restart() {
     node.enter().append("g")
         .attr("class", function(d) { return "node " + d.id; })
         .attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
+        .call(force.drag)
     
     node.append("circle")
         .attr("r", 10)
-        .call(force.drag)
     
     node.append("text")
         .attr("text-anchor", "middle")
