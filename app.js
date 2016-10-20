@@ -221,8 +221,7 @@ function tick() {
       .attr("x2", function(d) { return d.target.x; })
       .attr("y2", function(d) { return d.target.y; })
 
-  node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; })
+  node.attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
 }
 
 // Copy/Pasted with a little modification.
@@ -235,10 +234,11 @@ function restart() {
 //     node.enter().append("g").attr("class", "node").call(force.drag)
     node.enter().append("g")
         .attr("class", function(d) { return "node " + d.id; })
-        .call(force.drag)
+        .attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
     
     node.append("circle")
         .attr("r", 8)
+        .call(force.drag)
     
     node.append("text")
         .attr("dx", 12)
