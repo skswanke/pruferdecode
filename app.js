@@ -55,11 +55,11 @@ function prufer() {
     var tooBig = false
     var isNotNum = false
     for(var j = 0; j<inputsplit.length; j++){
-        if(isNaN(inputsplit[j])){
+        var temp = parseInt(inputsplit[j])        
+        if(isNaN(temp)){
             isNotNum = true
             break
         }
-        var temp = parseInt(inputsplit[j])
         if(temp == 0) {
             isZero = true
         }
@@ -74,7 +74,7 @@ function prufer() {
         error.classList.add("show")
         if (input === "" || input === null || input === 'undefined'){
             error.textContent = "Error: Code must not be empty."
-        } else if (isNaN(input)) {
+        } else if (isNotNum) {
             error.textContent = "Error: Code must be a number."
         } else if (isZero) {
             error.textContent = "Error: Code must not contain 0."
