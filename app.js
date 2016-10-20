@@ -7,7 +7,7 @@ var force = d3.layout.force()
     .size([width, height])
     .nodes([])
     .gravity(0.05)
-    .linkDistance(100)
+    .linkDistance(50)
     .charge(-100)
     .on("tick", tick);
 
@@ -243,8 +243,8 @@ function restart() {
     
     node.append("text")
         .attr("text-anchor", "middle")
-//         .attr("dx", 12)
-//         .attr("dy", ".35em")
+        .attr("dx", 10)
+        .attr("dy", ".35em")
         .text(function(d) { return d.id })
 //     node.append("text").attr("dx", 12).attr("dy", ".35em").text(function(d) { return d.id })
     node.exit().remove()
