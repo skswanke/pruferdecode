@@ -20,6 +20,11 @@ rect {
   pointer-events: none;
 }
 
+text {
+    font-size: 14px;
+    font-family: monospace;
+}
+
 #info {
   display: flex;
   text-align: center;
