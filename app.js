@@ -241,6 +241,7 @@ function restart() {
         .call(force.drag)
     
     node.append("text")
+        .attr("text-anchor", "middle")
         .attr("dx", 12)
         .attr("dy", ".35em")
         .text(function(d) { return d.id })
