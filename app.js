@@ -45,6 +45,8 @@ function prufer() {
     var inputsplit = []
     if(input.includes(",")){
         inputsplit = input.split(",")
+    } else if (input.includes(" ")) {
+        inputsplit = input.split(" ")
     } else {
         inputsplit = input.split("")
     }
