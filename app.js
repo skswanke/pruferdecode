@@ -6,8 +6,9 @@ var fill = d3.scale.category20();
 var force = d3.layout.force()
     .size([width, height])
     .nodes([])
-    .linkDistance(30)
-    .charge(-60)
+    .gravity(0.05)
+    .linkDistance(100)
+    .charge(-100)
     .on("tick", tick);
 
 var svg = d3.select("body").append("svg")
