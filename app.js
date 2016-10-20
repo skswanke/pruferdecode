@@ -227,15 +227,25 @@ function tick() {
 
 // Copy/Pasted with a little modification.
 function restart() {
-    link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; });
-    link.enter().insert("line", ".node").attr("class", "link");
-    link.exit().remove();
+    link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; })
+    link.enter().insert("line", ".node").attr("class", "link")
+    link.exit().remove()
 
-    node = node.data(force.nodes(), function(d) { return d.id;});
+    node = node.data(force.nodes(), function(d) { return d.id;})
 //     node.enter().append("g").attr("class", "node").call(force.drag)
-    node.enter().append("circle").attr("class", function(d) { return "node " + d.id; }).attr("r", 8);
+    node.enter().append("g")
+        .attr("class", function(d) { return "node " + d.id; })
+        .call(force.drag)
+    
+    node.append("circle")
+        .attr("r", 8)
+    
+    node.append("text")
+        .attr("dx", 12)
+        .attr("dy", ".35em")
+        .text(function(d) { return d.id })
 //     node.append("text").attr("dx", 12).attr("dy", ".35em").text(function(d) { return d.id })
-    node.exit().remove();
+    node.exit().remove()
 
   force.start()
 }
