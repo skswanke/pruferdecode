@@ -8,7 +8,7 @@
     <div class="container">
         <span id="info" onclick="hideInstructions()"><span style="width: 40%;display: flex;justify-content: center;"><span style="position: absolute;font-weight: bold;">Prufer Codes:</span><br> For every labeled tree there is exactly 1 unique string of numbers that represent that tree. This program reverses that process and findes the unique tree for any given string of numbers. Enter a code below and see for yourself! (click to hide this message)</span></span>
         <div class="innerContainer">
-            <input type="number" id="code" placeholder="1234" onkeydown="if(event.keyCode == 13){prufer(); return false;}" autofocus>
+            <input type="text" id="code" placeholder="1234 or 1,4,7,10,11,8,2,5,3" onkeydown="if(event.keyCode == 13){prufer(); return false;}" autofocus>
             <input type="button" onclick="prufer()" class="btn" value="Go!">
         </div>
         <span id="error">Error: Enter a number with no 0's and each digit lower than the length of the number + 2.</span>

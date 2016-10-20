@@ -42,7 +42,12 @@ function prufer() {
         document.getElementById("error").classList.remove("show")
     }
     var input = document.getElementById("code").value
-    var inputsplit = input.split("")
+    var inputsplit = []
+    if(input.includes(",")){
+        inputsplit = input.split(",")
+    } else {
+        inputsplit = input.split("")
+    }
     var code = []
     var isZero = false
     var tooBig = false
