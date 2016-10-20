@@ -51,7 +51,12 @@ function prufer() {
     var code = []
     var isZero = false
     var tooBig = false
+    var isNotNum = false
     for(var j = 0; j<inputsplit.length; j++){
+        if(isNaN(inputsplit[j])){
+            isNotNum = true
+            break
+        }
         var temp = parseInt(inputsplit[j])
         if(temp == 0) {
             isZero = true
@@ -61,7 +66,7 @@ function prufer() {
         }
         code.push(temp)
     }
-    if (input === "" || input === null || input === 'undefined' || isNaN(input) || isZero || tooBig){
+    if (input === "" || input === null || input === 'undefined' || isNotNum || isZero || tooBig){
         console.log("invalid input")
         var error = document.getElementById("error")
         error.classList.add("show")
