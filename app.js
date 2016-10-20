@@ -237,7 +237,7 @@ function restart() {
         .attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
     
     node.append("circle")
-        .attr("r", 8)
+        .attr("r", 14)
         .call(force.drag)
     
     node.append("text")
