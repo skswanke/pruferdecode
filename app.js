@@ -109,7 +109,6 @@ function prufer() {
             minVert = Math.min.apply(Math, possibleMins)
 
             // Create Nodes for prufer vertex and minimum vertex
-            // TODO: Make sure this connects existing nodes
             var isCodeInNodes = false
             var codeNodeLoc = -1
             for (var k=0; k < nodes.length; k++) {
