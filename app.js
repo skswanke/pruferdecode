@@ -31,8 +31,12 @@ Array.prototype.diff = function(a) {
     return this.filter(function(i) {return a.indexOf(i) < 0;});
 };
 
-function hideInstructions() {
+function showDragInstructions() {
     document.getElementById("info").innerHTML = "Now that you have a graph, click and drag to rearrange!"
+}
+
+function hideInstructions() {
+    document.getElementById("info").style.display = 'none'
 }
 
 function prufer() {
