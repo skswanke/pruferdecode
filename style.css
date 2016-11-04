@@ -116,3 +116,19 @@ text {
   margin: auto;
   margin-bottom: 10px;
 }
+
+.title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-weight: bold;
+}
+
+.desc {
+    width: 50%;
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
