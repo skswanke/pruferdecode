@@ -26,7 +26,7 @@ text {
 }
 
 #info {
-  display: flex;
+  display: block;
   text-align: center;
   justify-content: center;
   padding: .75rem 1.25rem;
@@ -127,7 +127,7 @@ text {
 
 .desc {
     width: 50%;
-    display: inherit;
+    display: inline-block;
     justify-content: center;
     align-items: center;
     margin: 0;
