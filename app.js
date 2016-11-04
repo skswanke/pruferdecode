@@ -32,7 +32,7 @@ Array.prototype.diff = function(a) {
 };
 
 function hideInstructions() {
-    document.getElementById("info").classList.add("hide")
+    document.getElementById("info").innerHTML = "Now that you have a graph, click and drag to rearrange!"
 }
 
 function prufer() {
