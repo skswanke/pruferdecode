@@ -40,7 +40,7 @@ function hideInstructions() {
 }
 
 function prufer() {
-    hideInstructions()
+    showDragInstructions()
     // Parse input
     if(document.getElementById("error").classList.contains("show")){
         document.getElementById("error").classList.remove("show")
