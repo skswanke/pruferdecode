@@ -8,8 +8,8 @@
 <body>
     <div class="container">
         <span id="info" onclick="hideInstructions()">
-            <p style="width: 40%;display: flex;justify-content: center;">Pr&uuml;fer Codes:</p>
-            <p> For every labelled tree there is exactly one unique string of numbers, this is called the Pr&uuml;fer code of that tree. This program reverses that process and finds the unique tree for any given string of numbers. Enter a Pr&uuml;fer code below and see for yourself! (click to hide this message)</p>
+            <p class="title">Pr&uuml;fer Codes:</p>
+            <p class="desc"> For every labelled tree there is exactly one unique string of numbers, this is called the Pr&uuml;fer code of that tree. This program reverses that process and finds the unique tree for any given string of numbers. Enter a Pr&uuml;fer code below and see for yourself! (click to hide this message)</p>
         </span>
         <div class="innerContainer">
             <input type="text" id="code" placeholder="1234 or 1,4,7 or 1 3 2 3" onkeydown="if(event.keyCode == 13){prufer(); return false;}" autofocus>
