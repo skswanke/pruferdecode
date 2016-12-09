@@ -59,18 +59,20 @@ function prufer() {
     var tooBig = false
     var isNotNum = false
     for(var j = 0; j<inputsplit.length; j++){
-        var temp = parseInt(inputsplit[j])        
-        if(isNaN(temp)){
-            isNotNum = true
-            break
+        if(inputsplit[j] != ''){
+            var temp = parseInt(inputsplit[j])        
+            if(isNaN(temp)){
+                isNotNum = true
+                break
+            }
+            if(temp == 0) {
+                isZero = true
+            }
+            if(temp >inputsplit.length + 2){
+                tooBig = true
+            }
+            code.push(temp)
         }
-        if(temp == 0) {
-            isZero = true
-        }
-        if(temp >inputsplit.length + 2){
-            tooBig = true
-        }
-        code.push(temp)
     }
     if (input === "" || input === null || input === 'undefined' || isNotNum || isZero || tooBig){
         var error = document.getElementById("error")
